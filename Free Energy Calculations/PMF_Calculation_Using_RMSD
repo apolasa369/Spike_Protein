@@ -21,7 +21,7 @@ quit
 for i in `seq 0 9`
 do
 
-paste $i.dat $i.rmsd | awk '{print $1-$2}' > $i.drmsd
+paste $i.dat $i.rmsd | awk '{print $1-$2, $3}' > $i.drmsd
 
 done
 

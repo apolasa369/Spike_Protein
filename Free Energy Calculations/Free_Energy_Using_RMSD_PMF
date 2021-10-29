@@ -1,22 +1,18 @@
-#Python script for calculating Free energy profile from PMF Caclulations.
-from numpy import *
+# Python script for calculating Jarzynski average from accumulated work.
 
+import numpy as np
 
+# Read data from text file. The text file contains all 10 trajectory work outputs
+data = np.genfromtxt("../work/all.dat", dtype=float128) # float128 was used to allow for more bits in computation
 
-data = genfromtxt("../work/all.dat", dtype=float128)
-n = len(data[1])
+n = len(data[1]) # number of points per line. 
 
+J = []
 
-
-t = []
-
-
-
+# Iterate through 
 for i in range(len(data)):
-x = (exp(-data[i]/0.6)).mean()
-t.append(-0.6*log(x))
+  x = (np.exp(-data[i]/0.6)).mean() # take average for each line
+  J.append(-0.6*np.log(x)) # append to empty list
 
-
-
-for j in t:
-print(j)
+# write output file
+np.savetxt('jar.txt', J)

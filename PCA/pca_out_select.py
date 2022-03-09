@@ -1,7 +1,7 @@
 # Principal Component analysis of spike protein MD trajectories
 #
 # Requires package prody
-#
+#gdtdhft
 # Usage with aligned C-alpha trajecories for individual protomers
 # python3 pca_out_select.py <output file name no suffix> <PDB structure file name> <List of 1 or more DCD trajectory files>
 
